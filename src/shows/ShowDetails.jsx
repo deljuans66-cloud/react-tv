@@ -1,6 +1,21 @@
-import "./shows.css";
+import "./episodes.css";
 
-/** Allows users to browse through the episodes of the given show */
-export default function ShowDetails() {
-  return <div className="show-details"></div>;
+export default function EpisodeDetails({ episode }) {
+  if (!episode) {
+    return (
+      <section className="episode-details">
+        <h2>Episode Details</h2>
+        <p>Select an episode to learn more.</p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="episode-details">
+      <h2>Episode {episode.number}</h2>
+      <h3>{episode.title}</h3>
+      <p>{episode.description}</p>
+      <button>Watch now</button>
+    </section>
+  );
 }
